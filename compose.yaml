@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:80"
+    volumes:
+      - ./config/users.json:/app/users.json
+      - ./public:/usr/src/app/public

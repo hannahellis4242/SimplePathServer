@@ -1,17 +1,19 @@
 import { readFile } from "fs/promises";
-import { ConfigSchema } from "./Config";
 import createApp from "./createApp";
-import getConfigPath from "./getConfigPath";
+import { UsersSchema } from "./Users";
+import { join } from "path";
+
+const usersPath = join("/", "app", "users.json");
+const publicPath = join("/", "app", "public");
 
 (() =>
-  getConfigPath()
-    .then(readFile)
+  readFile(usersPath)
     .then((buffer) => buffer.toString())
     .then(JSON.parse)
-    .then(ConfigSchema.parseAsync)
-    .then((config) =>
-      createApp(config).listen(config.port, "0.0.0.0", () =>
-        console.log(`listening on port ${config.port}`)
+    .then(UsersSchema.parseAsync)
+    .then((users) =>
+      createApp(users, publicPath).listen(3000, "0.0.0.0", () =>
+        console.log(`listening on port 3000`)
       )
     )
     .catch((e) => console.error(e)))();
