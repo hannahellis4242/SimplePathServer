@@ -20,6 +20,6 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
     - name: Build the Docker image
       run: |
-          docker build . --tag ghcr.io/hannahellis4242/simple-path-server/simple-path-server:latest --platform linux/amd64,linux/arm64
+          docker build . --tag ghcr.io/hannahellis4242/simple-path-server/simple-path-server:latest
           docker push ghcr.io/hannahellis4242/simple-path-server/simple-path-server:latest
       
