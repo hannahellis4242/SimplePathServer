@@ -3,7 +3,7 @@ import createApp from "./createApp";
 import { UsersSchema } from "./Users";
 import { join } from "path";
 
-const usersPath = join("/", "app", "users.json");
+const usersPath = join("/", "app", "config", "users.json");
 const publicPath = join("/", "app", "public");
 
 (() =>
