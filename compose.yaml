@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    image: docker pull ghcr.io/hannahellis4242/simple-path-server/simple-path-server:latest
+    image: ghcr.io/hannahellis4242/simple-path-server/simple-path-server:latest
     ports:
       - "80:3000"
     volumes:
